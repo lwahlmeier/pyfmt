@@ -17,3 +17,7 @@
 *.swp
 
 .cache*
+*/__pycache__/**
+_bridge.py
+test/build/**
+

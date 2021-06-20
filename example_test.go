@@ -3,7 +3,7 @@ package pyfmt_test
 import (
 	"fmt"
 
-	"github.com/slongfield/pyfmt"
+	"github.com/lwahlmeier/pyfmt"
 )
 
 func ExampleMust() {

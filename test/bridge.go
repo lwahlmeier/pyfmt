@@ -5,7 +5,7 @@ import "C"
 import (
 	"fmt"
 
-	"github.com/slongfield/pyfmt"
+	"github.com/lwahlmeier/pyfmt"
 )
 
 // FormatOneInt takes a format string and a single int, and formats it.
