@@ -11,9 +11,21 @@ build/__init__.py: *.py build/
 	cd ..
 	cp bridge_init.py build/__init__.py
 
+.venv/:
+	python3 -m venv .venv 
+
+.venv/touchfile: .venv/
+	. .venv/bin/activate;
+	pip3 install -r requirements.txt;
+	touch .venv/touchfile
+
+.PHONY: debug-check
+debug-check: .venv/touchfile build/libbridge.so build/__init__.py
+	. .venv/bin/activate; pytest -s --hypothesis-show-statistics --hypothesis-verbosity=debug
+
 .PHONY: check
-check: build/libbridge.so build/__init__.py
-	pytest --hypothesis-show-statistics
+check: .venv/touchfile build/libbridge.so build/__init__.py
+	. .venv/bin/activate; pytest --hypothesis-show-statistics
 
 .PHONY: clean
 clean:
